@@ -16,10 +16,17 @@
 #
 import webapp2
 
+form = """
+    <form action='http://www.google.com/search'>
+        <input type='search' name='q'>
+        <input type='submit'>
+    </form>
+"""
+
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.write("Hello World!")
+        self.response.write(form)
 
 
 app = webapp2.WSGIApplication([
