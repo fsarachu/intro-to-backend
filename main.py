@@ -3,7 +3,7 @@
 import webapp2
 
 form = """
-    <form action='/testform'>
+    <form method='post' action='/testform'>
         <input type='search' name='q'>
         <input type='submit'>
     </form>
@@ -17,10 +17,12 @@ class MainHandler(webapp2.RequestHandler):
 
 class TestHandler(webapp2.RequestHandler):
     def get(self):
-        # q = self.request.get("q")
-        # self.response.write(q)
-        self.response.headers['Content-Type'] = "text/plain"
-        self.response.write(self.request)
+        q = self.request.get("q")
+        self.response.write("GET: " + q)
+
+    def post(self):
+        q = self.request.get("q")
+        self.response.write("POST: " + q)
 
 
 app = webapp2.WSGIApplication([
