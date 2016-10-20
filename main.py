@@ -28,7 +28,8 @@ class TestHandler(webapp2.RequestHandler):
         if nickname == "franco" and password == "secret":
             self.response.write("Logged In!")
         else:
-            self.response.write("Wrong username or password!")
+            self.response.write("Wrong username or password! Try again...")
+            self.response.write(form)
 
 
 app = webapp2.WSGIApplication([
