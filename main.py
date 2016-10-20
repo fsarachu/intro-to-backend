@@ -2,10 +2,17 @@
 
 import webapp2
 
-form = """
+loginform = """
     <form method='post' action='/testform'>
         <label>Nickname: <input type='text' name='nickname'></label>
         <label>Password: <input type='password' name='password'></label>
+        <input type='submit'>
+    </form>
+"""
+
+form = """
+    <form action='/testform'>
+        <input type='checkbox' name='q'>
         <input type='submit'>
     </form>
 """
@@ -29,7 +36,7 @@ class TestHandler(webapp2.RequestHandler):
             self.response.write("Logged In!")
         else:
             self.response.write("Wrong username or password! Try again...")
-            self.response.write(form)
+            self.response.write(loginform)
 
 
 app = webapp2.WSGIApplication([
