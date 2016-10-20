@@ -4,10 +4,12 @@ import webapp2
 
 form = """
     <form>
-        <label><input type='radio' name='q' value='one'>One</label>
-        <label><input type='radio' name='q' value='two'>Two</label>
-        <label><input type='radio' name='q' value='three'>Three</label>
-        <br>
+        <select name='q'>
+            <option value='one'>Kangaroo</option>
+            <option value='two'>Parrot</option>
+            <option value='three'>Cheetah</option>
+        </select>
+        <br><br>
         <input type='submit'>
     </form>
 """
