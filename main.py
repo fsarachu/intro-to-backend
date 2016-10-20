@@ -3,12 +3,12 @@
 import webapp2
 
 form = """
-    <form>
-        <select name='q'>
-            <option value='one'>Kangaroo</option>
-            <option value='two'>Parrot</option>
-            <option value='three'>Cheetah</option>
-        </select>
+    <form method='post'>
+        What is your birthday?
+        <br><br>
+        <label>Month: <input type='text' name='month'></label>
+        <label>Day: <input type='text' name='day'></label>
+        <label>Year: <input type='text' name='year'></label>
         <br><br>
         <input type='submit'>
     </form>
