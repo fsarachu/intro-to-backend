@@ -19,6 +19,9 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write(form)
 
+    def post(self):
+        self.response.write(form)
+
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler)
