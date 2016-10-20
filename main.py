@@ -4,7 +4,8 @@ import webapp2
 
 form = """
     <form method='post' action='/testform'>
-        <input type='search' name='q'>
+        <label>Nickname: <input type='text' name='nickname'></label>
+        <label>Password: <input type='password' name='password'></label>
         <input type='submit'>
     </form>
 """
@@ -18,11 +19,16 @@ class MainHandler(webapp2.RequestHandler):
 class TestHandler(webapp2.RequestHandler):
     def get(self):
         q = self.request.get("q")
-        self.response.write("GET: " + q)
+        self.response.write(q)
 
     def post(self):
-        q = self.request.get("q")
-        self.response.write("POST: " + q)
+        nickname = self.request.get("nickname")
+        password = self.request.get("password")
+
+        if nickname == "franco" and password == "secret":
+            self.response.write("Logged In!")
+        else:
+            self.response.write("Wrong username or password!")
 
 
 app = webapp2.WSGIApplication([
