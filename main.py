@@ -20,13 +20,6 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write(form)
 
 
-class TestHandler(webapp2.RequestHandler):
-    def get(self):
-        q = self.request.get("q")
-        self.response.write(q)
-
-
 app = webapp2.WSGIApplication([
-    ('/', MainHandler),
-    ('/testform', TestHandler)
+    ('/', MainHandler)
 ], debug=True)
