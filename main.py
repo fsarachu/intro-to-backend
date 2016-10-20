@@ -12,9 +12,9 @@ loginform = """
 
 form = """
     <form>
-        <input type='radio' name='q'>
-        <input type='radio' name='r'>
-        <input type='radio' name='s'>
+        <label><input type='radio' name='q' value='one'>One</label>
+        <label><input type='radio' name='q' value='two'>Two</label>
+        <label><input type='radio' name='q' value='three'>Three</label>
         <br>
         <input type='submit'>
     </form>
