@@ -2,51 +2,31 @@ class DayValidator:
     def __init__(self):
         pass
 
-    days = (
-        'Monday',
-        'Tuesday',
-        'Wednesday',
-        'Thurdsday',
-        'Friday',
-        'Saturday',
-        'Sunday'
-    )
-
-    day_abbvs = tuple([day[:3].lower() for day in days])
+    min_day = 1
+    max_day = 31
 
     @staticmethod
     def validate(day):
-        """Validates either a 3 letter day abbreviation or a full day. Returns full day if valid, else None"""
-        day = day.strip()
-
-        if len(day) == 3:
-            short_day = day.lower()
-            if short_day in DayValidator.day_abbvs:
-                return DayValidator.days[DayValidator.day_abbvs.index(short_day)]
+        """Validates if its a number between 1 and 31. Returns the day as an int if valid, else None"""
+        if day and day.isdigit():
+            num_day = int(day)
+            if 1 <= num_day <= 31:
+                return num_day
             else:
                 return None
         else:
-            cap_day = day.capitalize()
-            if cap_day in DayValidator.days:
-                return cap_day
-            else:
-                return None
+            return None
 
 
 def main():
     print '\n--- Days ---'
-    print DayValidator.days
-
-    print '\n--- Day Abbreviations ---'
-    print DayValidator.day_abbvs
+    print 'min_day: {}'.format(DayValidator.min_day)
+    print 'max_day: {}'.format(DayValidator.max_day)
 
     print '\n--- Test Validations ---'
-    print 'validate(\'monday\'): {}'.format(DayValidator.validate('monday'))
-    print 'validate(\'MON\'): {}'.format(DayValidator.validate('MON'))
-    print 'validate(\'tueasdlkas\'): {}'.format(DayValidator.validate('tueasdlkas'))
-    print 'validate(\'tue\'): {}'.format(DayValidator.validate('tue'))
-    print 'validate(\'SUNDAY\'): {}'.format(DayValidator.validate('SUNDAY'))
-    print 'validate(\'Some junk\'): {}'.format(DayValidator.validate('Some junk'))
+    print 'validate(\'23\'): {}'.format(DayValidator.validate('23'))
+    print 'validate(\'34\'): {}'.format(DayValidator.validate('34'))
+    print 'validate(\'0\'): {}'.format(DayValidator.validate('0'))
 
 
 if __name__ == '__main__':
