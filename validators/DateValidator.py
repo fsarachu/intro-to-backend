@@ -23,11 +23,13 @@ class DateValidator:
         else:
             return None
 
+
 def main():
     print 'validate(\'Jan\', \'mon\', \'1996\'): {}'.format(DateValidator.validate('Jan', 'mon', '1996'))
     print 'validate(\'Jan\', \'mon\', \'2017\'): {}'.format(DateValidator.validate('Jan', 'mon', '2017'))
     print 'validate(\'jasndj\', \'mon\', \'1996\'): {}'.format(DateValidator.validate('jasndj', 'mon', '1996'))
     print 'validate(\'Jan\', \'ladkjs\', \'1996\'): {}'.format(DateValidator.validate('Jan', 'ladkjs', '1996'))
+
 
 if __name__ == '__main__':
     main()
