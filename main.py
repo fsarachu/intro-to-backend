@@ -10,7 +10,7 @@ form = """
         <label>Day: <input type='text' name='day'></label>
         <label>Year: <input type='text' name='year'></label>
         <br><br>
-        <input type='submit'>
+        <input type='submit' value='Submit'>
     </form>
 """
 
