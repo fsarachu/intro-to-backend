@@ -11,14 +11,16 @@ class YearValidator:
     @staticmethod
     def validate(year):
         try:
-            num_year = int(year)
-        except ValueError as e:
-            return None
-        else:
-            if YearValidator.min_year <= num_year <= YearValidator.max_year:
-                return num_year
+            if year and year.isdigit():
+                num_year = int(year)
+                if YearValidator.min_year <= num_year <= YearValidator.max_year:
+                    return num_year
+                else:
+                    return None
             else:
                 return None
+        except:
+            return None
 
 
 def main():
