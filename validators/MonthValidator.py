@@ -36,9 +36,15 @@ class MonthValidator:
 
 def main():
     validator = MonthValidator()
-    print validator.validate('january')
-    print validator.validate('some junk')
-    print validator.validate('AUGUST')
+
+    print '--- Abbreviations ---'
+    for abbr in validator.month_abbreviations:
+        print abbr
+
+    print '\n--- Test Validations ---'
+    print('validate(\'january\'): {}'.format(validator.validate('january')))
+    print('validate(\'some junk\'): {}'.format(validator.validate('some junk')))
+    print('validate(\'AUGUST\'): {}'.format(validator.validate('AUGUST')))
 
 
 if __name__ == '__main__':
