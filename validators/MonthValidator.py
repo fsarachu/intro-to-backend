@@ -38,18 +38,15 @@ def main():
     validator = MonthValidator()
 
     print '\n--- Months ---'
-    for m in validator.months:
-        print m
+    print validator.months
 
     print '\n--- Abbreviations ---'
-    # for abbr in validator.month_abbreviations:
-    #     print abbr
-    print validator.month_abbreviations
+    print sorted(validator.month_abbreviations, key=validator.month_abbreviations.__getitem__)
 
     print '\n--- Test Validations ---'
-    print('validate(\'january\'): {}'.format(validator.validate('january')))
-    print('validate(\'some junk\'): {}'.format(validator.validate('some junk')))
-    print('validate(\'AUGUST\'): {}'.format(validator.validate('AUGUST')))
+    print 'validate(\'january\'): {}'.format(validator.validate('january'))
+    print 'validate(\'some junk\'): {}'.format(validator.validate('some junk'))
+    print 'validate(\'AUGUST\'): {}'.format(validator.validate('AUGUST'))
 
 
 if __name__ == '__main__':
