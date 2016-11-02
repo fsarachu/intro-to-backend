@@ -17,7 +17,7 @@ class MonthValidator:
         'December'
     )
 
-    month_abbreviations = [month[:3].lower() for month in months]
+    month_abbreviations = tuple([month[:3].lower() for month in months])
 
     @staticmethod
     def validate(month):
