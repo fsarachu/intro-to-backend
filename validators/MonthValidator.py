@@ -22,11 +22,18 @@ class MonthValidator:
     @staticmethod
     def validate(month):
         """Validates either a month abbreviation or a full month"""
-        short_month = month.lower()
-        if short_month in MonthValidator.month_abbreviations:
-            return MonthValidator.months[MonthValidator.month_abbreviations.index(short_month)]
+        if len(month) == 3:
+            short_month = month.lower()
+            if short_month in MonthValidator.month_abbreviations:
+                return MonthValidator.months[MonthValidator.month_abbreviations.index(short_month)]
+            else:
+                return None
         else:
-            return None
+            capitalized_month = month.capitalize()
+            if capitalized_month in MonthValidator.months:
+                return capitalized_month
+            else:
+                return None
 
 
 def main():
