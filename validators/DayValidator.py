@@ -12,11 +12,12 @@ class DayValidator:
         'Sunday'
     )
 
-    day_abbvs = [day[:3].lower() for day in days]
+    day_abbvs = tuple([day[:3].lower() for day in days])
 
 
 def main():
     print DayValidator.days
+    print DayValidator.day_abbvs
 
 
 if __name__ == '__main__':
