@@ -41,6 +41,10 @@ def main():
     print '\n--- Test Validations ---'
     print 'validate(\'monday\'): {}'.format(DayValidator.validate('monday'))
     print 'validate(\'MON\'): {}'.format(DayValidator.validate('MON'))
+    print 'validate(\'tueasdlkas\'): {}'.format(DayValidator.validate('tueasdlkas'))
+    print 'validate(\'tue\'): {}'.format(DayValidator.validate('tue'))
+    print 'validate(\'SUNDAY\'): {}'.format(DayValidator.validate('SUNDAY'))
+    print 'validate(\'Some junk\'): {}'.format(DayValidator.validate('Some junk'))
 
 
 if __name__ == '__main__':
