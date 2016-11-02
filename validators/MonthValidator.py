@@ -1,53 +1,46 @@
 class MonthValidator:
     def __init__(self):
-        self._months = (
-            'January',
-            'February',
-            'March',
-            'April',
-            'May',
-            'June',
-            'July',
-            'August',
-            'September',
-            'October',
-            'November',
-            'December'
-        )
+        pass
 
-        self._month_abbreviations = [month[:3].lower() for month in self.months]
+    months = (
+        'January',
+        'February',
+        'March',
+        'April',
+        'May',
+        'June',
+        'July',
+        'August',
+        'September',
+        'October',
+        'November',
+        'December'
+    )
 
-    @property
-    def months(self):
-        return self._months
+    month_abbreviations = [month[:3].lower() for month in months]
 
-    @property
-    def month_abbreviations(self):
-        return self._month_abbreviations
-
-    def validate(self, month, abbreviation=True):
-        short_month = month[:3].lower()
-
-        if short_month in self.month_abbreviations:
-            return self.months[self.month_abbreviations.index(short_month)]
+    @staticmethod
+    def validate(month):
+        """Validates either a month abbreviation or a full month"""
+        short_month = month.lower()
+        if short_month in MonthValidator.month_abbreviations:
+            return MonthValidator.months[MonthValidator.month_abbreviations.index(short_month)]
         else:
             return None
 
 
 def main():
-    validator = MonthValidator()
-
     print '\n--- Months ---'
-    print validator.months
+    print MonthValidator.months
 
     print '\n--- Abbreviations ---'
-    print validator.month_abbreviations
+    print MonthValidator.month_abbreviations
 
     print '\n--- Test Validations ---'
-    print 'validate(\'january\'): {}'.format(validator.validate('january'))
-    print 'validate(\'some junk\'): {}'.format(validator.validate('some junk'))
-    print 'validate(\'some junk\'): {}'.format(validator.validate('Febdksjadklas'))
-    print 'validate(\'AUGUST\'): {}'.format(validator.validate('AUGUST'))
+    print 'validate(\'january\'): {}'.format(MonthValidator.validate('january'))
+    print 'validate(\'some junk\'): {}'.format(MonthValidator.validate('some junk'))
+    print 'validate(\'some junk\'): {}'.format(MonthValidator.validate('Febdksjadklas'))
+    print 'validate(\'AUGUST\'): {}'.format(MonthValidator.validate('AUGUST'))
 
 
 if __name__ == '__main__':
