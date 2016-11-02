@@ -46,6 +46,7 @@ def main():
     print '\n--- Test Validations ---'
     print 'validate(\'january\'): {}'.format(validator.validate('january'))
     print 'validate(\'some junk\'): {}'.format(validator.validate('some junk'))
+    print 'validate(\'some junk\'): {}'.format(validator.validate('Febdksjadklas'))
     print 'validate(\'AUGUST\'): {}'.format(validator.validate('AUGUST'))
 
 
