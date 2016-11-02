@@ -20,7 +20,9 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write(form)
 
     def post(self):
-        self.response.write(form)
+        self.response.write(
+            "<strong>Thats a totally valid day!</strong> <br><br>"
+            + form)
 
 
 app = webapp2.WSGIApplication([
