@@ -18,6 +18,14 @@ class MonthValidator:
 
         self._month_abbreviations = {m[:3].lower(): m for m in self._months}
 
+    @property
+    def months(self):
+        return self._months
+
+    @property
+    def month_abbreviations(self):
+        return self._month_abbreviations
+
     def validate(self, month, abbreviation=True):
         month = month.capitalize()
         if month in self._months:
