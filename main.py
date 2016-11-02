@@ -20,7 +20,11 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write(form)
 
     def post(self):
-        self.response.write("Thanks! Thats a totally valid day!")
+        from validators import DayValidator
+        if DayValidator.DayValidator.validate(self.request.get('day')):
+            self.response.write("Thanks! Thats a totally valid day!")
+        else:
+            self.response.write("Oooops! check that day!")
 
 
 app = webapp2.WSGIApplication([
