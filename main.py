@@ -18,31 +18,40 @@ form = """
 
 
 class MainHandler(webapp2.RequestHandler):
+    def html_escape(self, s):
+        import cgi
+        return cgi.escape(s, quote=True)
+
     def write_form(self, error='', month='', day='', year=''):
-        self.response.write(form % {'error': error, 'month': month, 'day': day, 'year': year})
+        self.response.write(form % {
+            'error': self.html_escape(error),
+            'month': self.html_escape(month),
+            'day': self.html_escape(day),
+            'year': self.html_escape(year)
+        })
 
-    def get(self):
-        self.write_form()
+        def get(self):
+            self.write_form()
 
-    def post(self):
-        from validators.MonthValidator import MonthValidator
-        from validators.DayValidator import DayValidator
-        from validators.YearValidator import YearValidator
+        def post(self):
+            from validators.MonthValidator import MonthValidator
+            from validators.DayValidator import DayValidator
+            from validators.YearValidator import YearValidator
 
-        user_month = self.request.get('month')
-        user_day = self.request.get('day')
-        user_year = self.request.get('year')
+            user_month = self.request.get('month')
+            user_day = self.request.get('day')
+            user_year = self.request.get('year')
 
-        valid_month = MonthValidator.validate(self.request.get('month'))
-        valid_day = DayValidator.validate(self.request.get('day'))
-        valid_year = YearValidator.validate(self.request.get('year'))
+            valid_month = MonthValidator.validate(self.request.get('month'))
+            valid_day = DayValidator.validate(self.request.get('day'))
+            valid_year = YearValidator.validate(self.request.get('year'))
 
-        if not (valid_month and valid_day and valid_year):
-            self.write_form(error='That doesn\'t look good buddy...', month=user_month, day=user_day, year=user_year)
-        else:
-            self.response.write('Thanks! That\'s a totally valid date!')
+            if not (valid_month and valid_day and valid_year):
+                self.write_form(error='That doesn\'t look good buddy...', month=user_month, day=user_day,
+                                year=user_year)
+            else:
+                self.response.write('Thanks! That\'s a totally valid date!')
 
-
-app = webapp2.WSGIApplication([
-    ('/', MainHandler)
-], debug=True)
+    app = webapp2.WSGIApplication([
+        ('/', MainHandler)
+    ], debug=True)
