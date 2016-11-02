@@ -10,14 +10,19 @@ form = """
         <label>Day: <input type='text' name='day'></label>
         <label>Year: <input type='text' name='year'></label>
         <br><br>
+        <div style='color: red'>%(error)s</div>
+        <br><br>
         <input type='submit' value='Submit'>
     </form>
 """
 
 
 class MainHandler(webapp2.RequestHandler):
+    def write_form(self, error=''):
+        self.response.write(form % {'error': error})
+
     def get(self):
-        self.response.write(form)
+        self.write_form()
 
     def post(self):
         from validators.MonthValidator import MonthValidator
@@ -29,7 +34,7 @@ class MainHandler(webapp2.RequestHandler):
         user_year = YearValidator.validate(self.request.get('year'))
 
         if not (user_month and user_day and user_year):
-            self.response.write(form)
+            self.write_form('That doesn\'t look good buddy...')
         else:
             self.response.write('Thanks! That\'s a totally valid date!')
 
