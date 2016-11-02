@@ -20,11 +20,22 @@ class MainHandler(webapp2.RequestHandler):
         self.response.write(form)
 
     def post(self):
-        from validators import DayValidator
-        if DayValidator.DayValidator.validate(self.request.get('day')):
-            self.response.write("Thanks! Thats a totally valid day!")
+        from validators import MonthValidator, DayValidator, YearValidator
+
+        if MonthValidator.MonthValidator.validate(self.request.get('month')):
+            self.response.write("Thanks! Thats a totally valid month! <br>")
         else:
-            self.response.write("Oooops! check that day!")
+            self.response.write("Oooops! check that month! <br>")
+
+        if DayValidator.DayValidator.validate(self.request.get('day')):
+            self.response.write("Thanks! Thats a totally valid day! <br>")
+        else:
+            self.response.write("Oooops! check that day! <br>")
+
+        if YearValidator.YearValidator.validate(self.request.get('year')):
+            self.response.write("Thanks! Thats a totally valid year! <br>")
+        else:
+            self.response.write("Oooops! check that year! <br>")
 
 
 app = webapp2.WSGIApplication([
