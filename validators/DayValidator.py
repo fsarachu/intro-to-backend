@@ -17,6 +17,8 @@ class DayValidator:
     @staticmethod
     def validate(day):
         """Validates either a 3 letter day abbreviation or a full day. Returns full day if valid, else None"""
+        day = day.strip()
+
         if len(day) == 3:
             short_day = day.lower()
             if short_day in DayValidator.day_abbvs:
