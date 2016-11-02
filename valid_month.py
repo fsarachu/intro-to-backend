@@ -15,5 +15,11 @@ months = (
 
 month_abbreviations = {m[:3].lower(): m for m in months}
 
-for k, v in month_abbreviations.items():
-    print k + ': ' + v
+
+def main():
+    for k, v in month_abbreviations.items():
+        print k + ': ' + v
+
+
+if __name__ == '__main__':
+    main()
