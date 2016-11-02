@@ -16,7 +16,7 @@ class MonthValidator:
             'December'
         )
 
-        self._month_abbreviations = {m[:3].lower(): m for m in self._months}
+        self._month_abbreviations = {month[:3].lower(): (index + 1, month) for index, month in enumerate(self._months)}
 
     @property
     def months(self):
@@ -42,8 +42,9 @@ def main():
         print m
 
     print '\n--- Abbreviations ---'
-    for abbr in validator.month_abbreviations:
-        print abbr
+    # for abbr in validator.month_abbreviations:
+    #     print abbr
+    print validator.month_abbreviations
 
     print '\n--- Test Validations ---'
     print('validate(\'january\'): {}'.format(validator.validate('january')))
