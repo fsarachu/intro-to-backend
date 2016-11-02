@@ -37,7 +37,11 @@ class MonthValidator:
 def main():
     validator = MonthValidator()
 
-    print '--- Abbreviations ---'
+    print '\n--- Months ---'
+    for m in validator.months:
+        print m
+
+    print '\n--- Abbreviations ---'
     for abbr in validator.month_abbreviations:
         print abbr
 
