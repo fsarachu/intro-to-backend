@@ -2,6 +2,9 @@ from datetime import datetime
 
 
 class YearValidator:
+    def __init__(self):
+        pass
+
     min_year = 1900
     max_year = datetime.now().year
 
