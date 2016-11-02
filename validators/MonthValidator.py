@@ -17,15 +17,15 @@ class MonthValidator:
         'December'
     )
 
-    month_abbreviations = tuple([month[:3].lower() for month in months])
+    month_abbvs = tuple([month[:3].lower() for month in months])
 
     @staticmethod
     def validate(month):
         """Validates either a 3 letter month abbreviation or a full month. Returns full month if valid, else None"""
         if len(month) == 3:
             short_month = month.lower()
-            if short_month in MonthValidator.month_abbreviations:
-                return MonthValidator.months[MonthValidator.month_abbreviations.index(short_month)]
+            if short_month in MonthValidator.month_abbvs:
+                return MonthValidator.months[MonthValidator.month_abbvs.index(short_month)]
             else:
                 return None
         else:
@@ -41,7 +41,7 @@ def main():
     print MonthValidator.months
 
     print '\n--- Abbreviations ---'
-    print MonthValidator.month_abbreviations
+    print MonthValidator.month_abbvs
 
     print '\n--- Test Validations ---'
     print 'validate(\'january\'): {}'.format(MonthValidator.validate('january'))
