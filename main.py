@@ -25,13 +25,13 @@ class MainHandler(webapp2.RequestHandler):
         from validators.YearValidator import YearValidator
 
         user_month = MonthValidator.validate(self.request.get('month'))
-        user_day = DayValidator.DayValidator.validate(self.request.get('day'))
-        user_year = YearValidator.YearValidator.validate(self.request.get('year'))
+        user_day = DayValidator.validate(self.request.get('day'))
+        user_year = YearValidator.validate(self.request.get('year'))
 
         if not (user_month and user_day and user_year):
-            pass
+            self.response.write(form)
         else:
-            pass
+            self.response.write('Thanks! That\'s a totally valid date!')
 
 
 app = webapp2.WSGIApplication([
