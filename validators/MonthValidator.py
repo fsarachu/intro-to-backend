@@ -21,7 +21,7 @@ class MonthValidator:
 
     @staticmethod
     def validate(month):
-        """Validates either a month abbreviation or a full month"""
+        """Validates either a 3 letter month abbreviation or a full month. Returns full month if valid, else None"""
         if len(month) == 3:
             short_month = month.lower()
             if short_month in MonthValidator.month_abbreviations:
