@@ -24,6 +24,7 @@ def main():
 
     print "\n--- Test Validations ---"
     print 'validate(\'2016\'): {}'.format(YearValidator.validate('2016'))
+    print 'validate(\'  2016   \'): {}'.format(YearValidator.validate('  2016   '))
     print 'validate(2016): {}'.format(YearValidator.validate(2016))
     print 'validate(\'asdklas\'): {}'.format(YearValidator.validate('asdklas'))
     print 'validate(\'1900\'): {}'.format(YearValidator.validate('1900'))
