@@ -56,7 +56,7 @@ class FormHandler(webapp2.RequestHandler):
             self.write_form(error='That doesn\'t look good buddy...', month=user_month, day=user_day,
                             year=user_year)
         else:
-            self.redirect('/thanks')
+            self.redirect('/form/thanks')
 
 
 class ThanksHandler(webapp2.RequestHandler):
