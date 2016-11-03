@@ -33,9 +33,7 @@ class FormHandler(Handler):
         self.write_form()
 
     def post(self):
-        from validators.MonthValidator import MonthValidator
-        from validators.DayValidator import DayValidator
-        from validators.YearValidator import YearValidator
+        from validators import *
 
         user_month = self.request.get('month')
         user_day = self.request.get('day')
