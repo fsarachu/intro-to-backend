@@ -63,8 +63,13 @@ class ThanksHandler(webapp2.RequestHandler):
         self.response.write('Thanks! That\'s a totally valid date!')
 
 
+class TemplateHandler(webapp2.RequestHandler):
+    pass
+
+
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/form', FormHandler),
-    ('/form/thanks', ThanksHandler)
+    ('/form/thanks', ThanksHandler),
+    ('/template', TemplateHandler)
 ], debug=True)
