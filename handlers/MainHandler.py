@@ -22,4 +22,4 @@ class MainHandler(Handler):
         """
 
     def get(self):
-        self.response.write(self.main_page)
+        self.write(self.main_page)

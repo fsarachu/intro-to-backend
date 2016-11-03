@@ -23,7 +23,7 @@ class FormHandler(Handler):
         return cgi.escape(s, quote=True)
 
     def write_form(self, error='', month='', day='', year=''):
-        self.response.write(self.form % {
+        self.write(self.form % {
             'error': self.html_escape(error),
             'month': self.html_escape(month),
             'day': self.html_escape(day),
