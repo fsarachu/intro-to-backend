@@ -18,7 +18,12 @@ class TemplateHandler(Handler):
     # """
     #
     def get(self):
-        self.render('shopping_list.html', name='Franco', n=3)
+        n = (self.request.get('n'))
+
+        if n.isdigit():
+            n = int(n)
+
+        self.render('shopping_list.html', n=n)
         #     output = self.form_html
         #     output_hidden = ""
         #     output_items = ""
