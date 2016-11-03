@@ -2,20 +2,6 @@
 
 import webapp2
 
-form = """
-    <form method='post'>
-        What is your birthday?
-        <br><br>
-        <label>Month: <input type='text' name='month' value='%(month)s'></label>
-        <label>Day: <input type='text' name='day' value='%(day)s'></label>
-        <label>Year: <input type='text' name='year' value='%(year)s'></label>
-        <br><br>
-        <div style='color: red'>%(error)s</div>
-        <br>
-        <input type='submit' value='Submit'>
-    </form>
-"""
-
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -23,12 +9,26 @@ class MainHandler(webapp2.RequestHandler):
 
 
 class FormHandler(webapp2.RequestHandler):
+    form = """
+        <form method='post'>
+            What is your birthday?
+            <br><br>
+            <label>Month: <input type='text' name='month' value='%(month)s'></label>
+            <label>Day: <input type='number' name='day' value='%(day)s'></label>
+            <label>Year: <input type='number' name='year' value='%(year)s'></label>
+            <br><br>
+            <div style='color: red'>%(error)s</div>
+            <br>
+            <input type='submit' value='Submit'>
+        </form>
+    """
+
     def html_escape(self, s):
         import cgi
         return cgi.escape(s, quote=True)
 
     def write_form(self, error='', month='', day='', year=''):
-        self.response.write(form % {
+        self.response.write(self.form % {
             'error': self.html_escape(error),
             'month': self.html_escape(month),
             'day': self.html_escape(day),
