@@ -3,12 +3,17 @@
 import webapp2
 
 
-class MainHandler(webapp2.RequestHandler):
+class Handler(webapp2.RequestHandler):
+    def write(self, *args, **kwargs):
+        self.response.write(*args, **kwargs)
+
+
+class MainHandler(Handler):
     def get(self):
         self.response.write('Hello World!')
 
 
-class FormHandler(webapp2.RequestHandler):
+class FormHandler(Handler):
     form = """
         <form method='post'>
             What is your birthday?
@@ -59,12 +64,12 @@ class FormHandler(webapp2.RequestHandler):
             self.redirect('/form/thanks')
 
 
-class ThanksHandler(webapp2.RequestHandler):
+class ThanksHandler(Handler):
     def get(self):
         self.response.write('Thanks! That\'s a totally valid date!')
 
 
-class TemplateHandler(webapp2.RequestHandler):
+class TemplateHandler(Handler):
     pass
 
 
