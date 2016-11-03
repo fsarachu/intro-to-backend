@@ -1,10 +1,11 @@
 import jinja2
+import os
 
 import webapp2
 
 
 class Handler(webapp2.RequestHandler):
-    template_dir = '../templates'
+    template_dir = os.path.join(os.path.dirname(__file__), '../templates')
     jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir))
 
     def write(self, *args, **kwargs):
@@ -15,4 +16,4 @@ class Handler(webapp2.RequestHandler):
         return t.render(kwargs)
 
     def render(self, template, **kwargs):
-        self.write(self.render(template, kwargs))
+        self.write(self.render_str(template, **kwargs))

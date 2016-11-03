@@ -2,46 +2,38 @@ from Handler import Handler
 
 
 class TemplateHandler(Handler):
-    form_html = """
-    <form action=''>
-        <h2>Add Food</h2>
-        <input type='text' name='food' autofocus='autofocus'>
-        %s
-        <input type='submit' value='Add'>
-    </form>
-    """
-
-    hidden_html = """
-    <input type='hidden' name='food' value='%s'>
-    """
-
-    item_html = """
-    <li>%s</li>
-    """
-
-    shopping_list_html = """
-    <h2>Shopping List</h2>
-    <ul>
-    %s
-    </ul>
-    """
-
+    # hidden_html = """
+    # <input type='hidden' name='food' value='%s'>
+    # """
+    #
+    # item_html = """
+    # <li>%s</li>
+    # """
+    #
+    # shopping_list_html = """
+    # <h2>Shopping List</h2>
+    # <ul>
+    # %s
+    # </ul>
+    # """
+    #
     def get(self):
-        output = self.form_html
-        output_hidden = ""
-        output_items = ""
-
-        items = self.request.get_all('food')
-
-        if items:
-            for item in items:
-                output_hidden += self.hidden_html % item
-                output_items += self.item_html % item.capitalize()
-
-            output_shopping = self.shopping_list_html % output_items
-
-            output += output_shopping
-
-        output = output % output_hidden
-
-        self.write(output)
+        self.render('shopping_list.html')
+        #     output = self.form_html
+        #     output_hidden = ""
+        #     output_items = ""
+        #
+        #     items = self.request.get_all('food')
+        #
+        #     if items:
+        #         for item in items:
+        #             output_hidden += self.hidden_html % item
+        #             output_items += self.item_html % item.capitalize()
+        #
+        #         output_shopping = self.shopping_list_html % output_items
+        #
+        #         output += output_shopping
+        #
+        #     output = output % output_hidden
+        #
+        #     self.write(output)
