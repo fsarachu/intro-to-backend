@@ -1,1 +1,1 @@
-__all__ = ['MainHandler', 'FormHandler', 'ThanksHandler', 'TemplateHandler']
+__all__ = ['FormHandler', 'MainHandler', 'TemplateHandler', 'ThanksHandler']
