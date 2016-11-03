@@ -1,9 +1,4 @@
-import jinja2
-
 from Handler import Handler
-
-template_dir = '../templates'
-jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir))
 
 
 class TemplateHandler(Handler):
