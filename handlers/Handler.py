@@ -13,3 +13,6 @@ class Handler(webapp2.RequestHandler):
     def render_str(self, template, **kwargs):
         t = self.jinja_env.get_template(template)
         return t.render(kwargs)
+
+    def render(self, template, **kwargs):
+        self.write(self.render(template, kwargs))
