@@ -23,7 +23,8 @@ class FormHandler(webapp2.RequestHandler):
         </form>
     """
 
-    def html_escape(self, s):
+    @staticmethod
+    def html_escape(s):
         import cgi
         return cgi.escape(s, quote=True)
 
