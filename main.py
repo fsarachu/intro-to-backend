@@ -3,11 +3,6 @@
 import webapp2
 
 
-class ThanksHandler(Handler):
-    def get(self):
-        self.response.write('Thanks! That\'s a totally valid date!')
-
-
 class TemplateHandler(Handler):
     pass
 
