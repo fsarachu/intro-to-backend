@@ -18,6 +18,11 @@ form = """
 
 
 class MainHandler(webapp2.RequestHandler):
+    def get(self):
+        self.response.write('Hello World!')
+
+
+class FormHandler(webapp2.RequestHandler):
     def html_escape(self, s):
         import cgi
         return cgi.escape(s, quote=True)
@@ -60,5 +65,6 @@ class ThanksHandler(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
-    ('/thanks', ThanksHandler)
+    ('/form', FormHandler),
+    ('/form/thanks', ThanksHandler)
 ], debug=True)
