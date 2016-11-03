@@ -1,4 +1,4 @@
-import Handler
+from Handler import Handler
 
 
 class MainHandler(Handler):

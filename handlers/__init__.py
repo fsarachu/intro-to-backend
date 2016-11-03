@@ -1,1 +1,4 @@
-__all__ = ['FormHandler', 'MainHandler', 'TemplateHandler', 'ThanksHandler']
+from .FormHandler import FormHandler
+from .MainHandler import MainHandler
+from .TemplateHandler import TemplateHandler
+from .ThanksHandler import ThanksHandler
