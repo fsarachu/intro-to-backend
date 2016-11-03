@@ -2,11 +2,6 @@
 
 import webapp2
 
-
-class TemplateHandler(Handler):
-    pass
-
-
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
     ('/form', FormHandler),
