@@ -6,7 +6,7 @@ import webapp2
 
 class Handler(webapp2.RequestHandler):
     template_dir = os.path.join(os.path.dirname(__file__), '../templates')
-    jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir))
+    jinja_env = jinja2.Environment(loader=jinja2.FileSystemLoader(template_dir), autoescape=True)
 
     def write(self, *args, **kwargs):
         self.response.write(*args, **kwargs)
