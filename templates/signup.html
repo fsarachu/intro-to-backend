@@ -2,10 +2,26 @@
 
 {% block content %}
   <form method="post">
-    <input type="text" name="username" value="{{ username }}">
-    <input type="password" name="password">
-    <input type="password" name="verify">
-    <input type="text" name="email" value="{{ email }}">
+    <label>
+      Username:
+      <input type="text" name="username" value="{{ username }}">
+    </label>
+    <br><br>
+    <label>
+      Password:
+      <input type="password" name="password">
+    </label>
+    <br><br>
+    <label>
+      Re-type Password:
+      <input type="password" name="verify">
+    </label>
+    <br><br>
+    <label>
+      Email:
+      <input type="text" name="email" value="{{ email }}">
+    </label>
+    <br><br>
     <input type="submit" value="Sign Up!">
   </form>
 {% endblock %}
