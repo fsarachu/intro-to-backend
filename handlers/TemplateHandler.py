@@ -18,10 +18,13 @@ class TemplateHandler(Handler):
     # """
     #
     def get(self):
+
         n = (self.request.get('n'))
 
         if n.isdigit():
             n = int(n)
+        else:
+            n = 10
 
         self.render('shopping_list.html', n=n)
         #     output = self.form_html
