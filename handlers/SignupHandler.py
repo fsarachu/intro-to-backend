@@ -1,4 +1,6 @@
 from Handler import Handler
 
+
 class SignupHandler(Handler):
-    pass
+    def get(self):
+        self.render('signup.html')
