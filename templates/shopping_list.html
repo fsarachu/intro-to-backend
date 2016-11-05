@@ -7,8 +7,13 @@
   <input type='submit' value='Add'>
 </form>
 
-<ul>
-  {% for x in range(1, 11) %}
-    <li>{{ x ** 2 }}</li>
-  {% endfor %}
-</ul>
+<h2>Items in list</h2>
+{% if items %}
+  <ul>
+    {% for item in items %}
+      <li>{{ item }}</li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>Your list is empty!</p>
+{% endif %}

@@ -18,7 +18,8 @@ class TemplateHandler(Handler):
     # """
     #
     def get(self):
-        self.render('shopping_list.html')
+        items = self.request.get_all('food')
+        self.render('shopping_list.html', items=items)
         #     output = self.form_html
         #     output_hidden = ""
         #     output_items = ""
