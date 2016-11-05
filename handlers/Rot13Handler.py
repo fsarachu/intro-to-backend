@@ -2,7 +2,8 @@ from Handler import Handler
 
 
 class Rot13Handler(Handler):
-    def do_rot13(self, text):
+    @staticmethod
+    def do_rot13(text):
         upper_a_ascii = 65
         upper_z_ascii = 90
         lower_a_ascii = 97
