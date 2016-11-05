@@ -24,3 +24,11 @@ class Rot13Handler(Handler):
             output += chr(c)
 
         return output
+
+    def get(self):
+        self.render('rot13.html')
+
+    def post(self):
+        text = self.request.get('text')
+        text = self.do_rot13(text)
+        self.render('rot13.html', text=text)
