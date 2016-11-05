@@ -9,5 +9,6 @@ app = webapp2.WSGIApplication([
     ('/form', FormHandler),
     ('/form/thanks', ThanksHandler),
     ('/template', TemplateHandler),
-    ('/rot13', Rot13Handler)
+    ('/rot13', Rot13Handler),
+    ('/signup', SignupHandler)
 ], debug=True)
