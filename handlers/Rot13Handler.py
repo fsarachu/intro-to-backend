@@ -21,6 +21,6 @@ class Rot13Handler(Handler):
                 if c > lower_z_ascii:
                     c += lower_a_ascii - lower_z_ascii - 1
 
-            output += c
+            output += chr(c)
 
         return output
