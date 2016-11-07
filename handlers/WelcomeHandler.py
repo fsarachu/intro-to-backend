@@ -11,4 +11,4 @@ class WelcomeHandler(Handler):
         if not self.validator.valid_username(username):
             self.render('welcome.html', username=username)
         else:
-            self.redirect('signup.html')
+            self.redirect('/signup')
