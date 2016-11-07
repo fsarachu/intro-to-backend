@@ -11,3 +11,6 @@ class SignupValidator():
 
     def valid_password(self, password):
         return self.PASS_RE.match(password)
+
+    def valid_email(self, email):
+        return self.EMAIL_RE.match(email)
