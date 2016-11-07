@@ -1,6 +1,7 @@
 from handlers.Handler import Handler
 from validators import SignupValidator
 
+
 class WelcomeHandler(Handler):
     validator = SignupValidator.SignupValidator()
 
@@ -11,5 +12,3 @@ class WelcomeHandler(Handler):
             self.render('welcome.html', username=username)
         else:
             self.redirect('signup.html')
-
-
