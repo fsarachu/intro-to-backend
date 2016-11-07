@@ -14,7 +14,7 @@ class SignupHandler(Handler):
 
         params = dict(username=username, email=email)
 
-        if have_error == True:
+        if have_error:
             self.render('signup.html', **params)
         else:
             self.redirect('/welcome?username={}'.format(username))
