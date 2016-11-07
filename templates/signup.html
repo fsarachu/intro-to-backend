@@ -7,7 +7,7 @@
       <input type="text" name="username" value="{{ username }}">
     </label>
     {% if error_username %}
-      <p style="color: red;">{{ error_username }}</p>
+      <span style="color: red;">{{ error_username }}</span>
     {% endif %}
     <br><br>
     <label>
@@ -15,7 +15,7 @@
       <input type="password" name="password">
     </label>
     {% if error_password %}
-      <p style="color: red;">{{ error_password }}</p>
+      <span style="color: red;">{{ error_password }}</span>
     {% endif %}
     <br><br>
     <label>
@@ -23,7 +23,7 @@
       <input type="password" name="verify">
     </label>
     {% if error_verify %}
-      <p style="color: red;">{{ error_verify }}</p>
+      <span style="color: red;">{{ error_verify }}</span>
     {% endif %}
     <br><br>
     <label>
@@ -31,7 +31,7 @@
       <input type="text" name="email" value="{{ email }}">
     </label>
     {% if error_email %}
-      <p style="color: red;">{{ error_email }}</p>
+      <span style="color: red;">{{ error_email }}</span>
     {% endif %}
     <br><br>
     <input type="submit" value="Sign Up!">
