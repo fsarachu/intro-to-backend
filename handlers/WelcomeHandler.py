@@ -8,7 +8,7 @@ class WelcomeHandler(Handler):
     def get(self):
         username = self.request.get('username')
 
-        if not self.validator.valid_username(username):
+        if self.validator.valid_username(username):
             self.render('welcome.html', username=username)
         else:
             self.redirect('/signup')
