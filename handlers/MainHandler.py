@@ -13,7 +13,7 @@ class MainHandler(Handler):
 
         self.response.headers.add_header('Set-Cookie', 'visits={}'.format(visits))
 
-        if visits > 80:
+        if visits > 30:
             message = "You are AWESOME! You have visited this page {} times!".format(visits)
         else:
             message = "You are not cool enough... You have only visited this page {} times...".format(visits)
