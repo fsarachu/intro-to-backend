@@ -1,12 +1,20 @@
 {% extends "base.html" %}
 
 {% block content %}
-<h1>Intro to Backend</h1>
-<ul>
-  <li><a href='/form'>Forms</a></li>
-  <li><a href='/template'>Templates</a></li>
-  <li><a href='/rot13'>ROT13</a></li>
-  <li><a href='/signup'>Signup</a></li>
-</ul>
-<h3>{{message}}</h3>
+  <h1>Intro to Backend</h1>
+  <ul>
+    <li><a href='/form'>Forms</a></li>
+    <li><a href='/template'>Templates</a></li>
+    <li><a href='/rot13'>ROT13</a></li>
+    <li><a href='/signup'>Signup</a></li>
+  </ul>
+  <h3>{{ message }}</h3>
+  {% if hashed %}
+    {% for h in hashed %}
+      <p>
+        The <strong>{{ h['algorithm'] }}</strong> for the string <strong>{{ h['x'] }}</strong> is
+        <strong>{{ h['y'] }}</strong>
+      </p>
+    {% endfor %}
+  {% endif %}
 {% endblock %}
