@@ -1,6 +1,6 @@
 import hashlib
 
-from handlers import Handler
+from Handler import Handler
 
 
 class CookieHandler(Handler):
