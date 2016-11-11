@@ -11,5 +11,6 @@ app = webapp2.WSGIApplication([
     ('/template', TemplateHandler),
     ('/rot13', Rot13Handler),
     ('/signup', SignupHandler),
-    ('/welcome', WelcomeHandler)
+    ('/welcome', WelcomeHandler),
+    ('/cookies', CookieHandler)
 ], debug=True)

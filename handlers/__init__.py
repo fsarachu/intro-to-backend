@@ -5,3 +5,4 @@ from .SignupHandler import SignupHandler
 from .TemplateHandler import TemplateHandler
 from .ThanksHandler import ThanksHandler
 from .WelcomeHandler import WelcomeHandler
+from .CookieHandler import CookieHandler
