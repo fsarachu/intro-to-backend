@@ -1,10 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "base.html" %}
+{% block content %}
+  <h3>{{ message }}</h3>
+  {% if hashed %}
+    {% for h in hashed %}
+      <p>
+        The <strong>{{ h['algorithm'] }}</strong> for the string <strong>{{ h['x'] }}</strong> is
+        <strong>{{ h['y'] }}</strong>
+      </p>
+    {% endfor %}
+  {% endif %}
+{% endblock %}
