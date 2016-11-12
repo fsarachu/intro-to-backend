@@ -41,3 +41,9 @@ class CookieHandler(Handler):
         hashed.append(hashed_item)
 
         self.render('cookies.html', message=message, hashed=hashed)
+
+    def hash_str(s):
+        return hashlib.md5(x).hexdigest()
+    
+    
+        
