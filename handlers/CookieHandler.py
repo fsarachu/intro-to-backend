@@ -45,5 +45,8 @@ class CookieHandler(Handler):
     def hash_str(s):
         return hashlib.md5(x).hexdigest()
     
+    def make_secure_value(s):
+        return '{},{}'.format(s,self.hash_str(s))
+    
     
         
