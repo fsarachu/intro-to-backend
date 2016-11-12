@@ -50,6 +50,4 @@ class CookieHandler(Handler):
 
     def check_secure_value(s):
         value = (s.split(','))[0]
-        return value if s == self.hash_str(v) else None
-    
-        
+        return value if s == self.make_secure_value(value) else None
