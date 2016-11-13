@@ -6,7 +6,13 @@ from Handler import Handler
 class CookieHandler(Handler):
     def get(self):
         # Cookies handling
-        visits = self.request.cookies.get('visits', '0')
+        visits = self.request.cookies.get('visits', self.make_secure_value('0'))
+        visits = self.check_secure_value(visits)
+        
+        if not visits:
+            self.render('cookies.html', message='Ooooops! That cookie doesn\'t')
+            return 
+        
         if visits.isdigit():
             visits = int(visits)
         else:
@@ -21,26 +27,7 @@ class CookieHandler(Handler):
         else:
             message = "You are not cool enough... You have only visited this page {} times...".format(visits)
 
-        # Hashing stuff
-        hashed = []
-
-        x = 'Hello World!'
-        hashed_item = dict(x=x, y=hashlib.md5(x).hexdigest(), algorithm='md5')
-        hashed.append(hashed_item)
-
-        x = 'Hello world!'
-        hashed_item = dict(x=x, y=hashlib.md5(x).hexdigest(), algorithm='md5')
-        hashed.append(hashed_item)
-
-        x = 'Hello World!'
-        hashed_item = dict(x=x, y=hashlib.sha1(x).hexdigest(), algorithm='sha1')
-        hashed.append(hashed_item)
-
-        x = 'Hello World!'
-        hashed_item = dict(x=x, y=hashlib.sha256(x).hexdigest(), algorithm='sha256')
-        hashed.append(hashed_item)
-
-        self.render('cookies.html', message=message, hashed=hashed)
+        self.render('cookies.html', message=message)
 
     def hash_str(s):
         return hashlib.md5(x).hexdigest()
