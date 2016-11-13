@@ -10,7 +10,7 @@ class CookieHandler(Handler):
         visits = self.check_secure_value(visits)
         
         if not visits:
-            self.render('cookies.html', message='Ooooops! That cookie doesn\'t')
+            self.render('cookies.html', message='Ooooops! That cookie doesn\'t looks good')
             return 
         
         if visits.isdigit():
@@ -30,7 +30,7 @@ class CookieHandler(Handler):
         self.render('cookies.html', message=message)
 
     def hash_str(self, s):
-        return hashlib.md5(x).hexdigest()
+        return hashlib.md5(s).hexdigest()
     
     def make_secure_value(self, s):
         return '{},{}'.format(s,self.hash_str(s))
