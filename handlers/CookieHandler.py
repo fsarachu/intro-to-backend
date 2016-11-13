@@ -29,12 +29,12 @@ class CookieHandler(Handler):
 
         self.render('cookies.html', message=message)
 
-    def hash_str(s):
+    def hash_str(self, s):
         return hashlib.md5(x).hexdigest()
     
-    def make_secure_value(s):
+    def make_secure_value(self, s):
         return '{},{}'.format(s,self.hash_str(s))
 
-    def check_secure_value(s):
+    def check_secure_value(self, s):
         value = (s.split(','))[0]
         return value if s == self.make_secure_value(value) else None
