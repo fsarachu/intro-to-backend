@@ -1,4 +1,6 @@
 import hmac
+import random
+import string
 
 from Handler import Handler
 
@@ -28,3 +30,12 @@ class CookieHandler(Handler):
     def check_secure_value(self, s):
         value = s.split('-')[0]
         return value if s == self.make_secure_value(value) else None
+
+    @staticmethod
+    def make_salt(length=5):
+        return ''.join(random.choice(string.ascii_letters + string.digits + string.punctuation) for _ in range(length))
+
+
+if __name__ == '__main__':
+    for i in range(50):
+        print CookieHandler.make_salt(20)
