@@ -1,9 +1,11 @@
-import hashlib
+import hmac
 
 from Handler import Handler
 
 
 class CookieHandler(Handler):
+    SALT = 'somesalt'
+
     def get(self):
         user_cookie_str = self.request.cookies.get('visits', self.make_secure_value('0'))
         user_cookie_val = self.check_secure_value(user_cookie_str)
@@ -18,7 +20,7 @@ class CookieHandler(Handler):
             self.render('cookies.html', message='Ooooops! That cookie doesn\'t look good...')
 
     def hash_str(self, s):
-        return hashlib.md5(s).hexdigest()
+        return hmac.new(self.SALT, s).hexdigest()
 
     def make_secure_value(self, s):
         return '{}-{}'.format(s, self.hash_str(s))
