@@ -1,3 +1,4 @@
+import hashlib
 import hmac
 import random
 import string
@@ -34,6 +35,11 @@ class CookieHandler(Handler):
     @staticmethod
     def make_salt(length=5):
         return ''.join(random.choice(string.ascii_letters) for _ in range(length))
+
+    def make_password_hash(self, name, password):
+        salt = self.make_salt()
+        h = hashlib.sha256(name + password + salt).hexigest()
+        return '{},{}'.format(h, salt)
 
 
 if __name__ == '__main__':
