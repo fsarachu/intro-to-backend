@@ -33,7 +33,7 @@ class CookieHandler(Handler):
 
     @staticmethod
     def make_salt(length=5):
-        return ''.join(random.choice(string.ascii_letters + string.digits + string.punctuation) for _ in range(length))
+        return ''.join(random.choice(string.ascii_letters) for _ in range(length))
 
 
 if __name__ == '__main__':
